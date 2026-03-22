@@ -1,0 +1,28 @@
+
+
+public class ConsoleInput {
+    
+    static String getString() {
+        try {
+            byte[] input = new byte[100];
+            int len = System.in.read(input);
+            
+            byte[] finalInput = new byte[len - 2];
+            System.arraycopy(input, 0, finalInput, 0, len - 2);
+            
+            String objString = new String(finalInput);
+            return objString;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static double getDouble() {
+        return Double.parseDouble(getString());
+    }
+
+    public static int getInt() {
+        return Integer.parseInt(getString());
+    }
+}
